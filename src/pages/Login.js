@@ -97,9 +97,7 @@ const Login = () => {
 
                     <Link to="/" relative="path" className="cursor-pointer text-blue-800 text-sm"> Signup</Link>
                 </div>
-                <div className="flex justify-between">
-                    <a className="text-sm text-gray-600" href="/"></a>
-                </div>
+            
 
                 <button type="submit" className="px-8 py-3 space-x-2 font-semibold rounded bg-indigo-600 text-gray-50">Login</button>
             </form>
