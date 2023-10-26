@@ -25,7 +25,7 @@ const Landing = () => {
     const [taskAdded, setTaskAdded] = useState(false)
     const [taskDeleted, setTaskDeleted] = useState(false)
     const loadTodos = async () => {
-        const response = await axios.get(`https://todos-lists.onrender.com/todo/gettodos`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/todo/gettodos`, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
         const { todos, username } = await response.data
@@ -46,7 +46,7 @@ const Landing = () => {
                 title: todo,
                 createdAt: Date.now()
             }
-            const res = await axios.post(`https://todos-lists.onrender.com/todo/createtodo`, data, {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/todo/createtodo`, data, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
             const response = await res.data
@@ -89,7 +89,7 @@ const Landing = () => {
     }
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`https://todos-lists.onrender.com/todo/deletetodo/${id}`, {
+            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/todo/deletetodo/${id}`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
             const response = await res.data
@@ -134,7 +134,7 @@ const Landing = () => {
         try {
             const newtodo = window.prompt('Enter new Todo')
             settodo(newtodo)
-            const res = await axios.put(`https://todos-lists.onrender.com/todo/edittodo/${id}`, {
+            const res = await axios.put(`${process.env.REACT_APP_API_URL}/todo/edittodo/${id}`, {
                 "title": newtodo
             }, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
@@ -181,7 +181,7 @@ const Landing = () => {
     const addTask = async (e) => {
         try {
             e.preventDefault()
-            const res = await axios.post(`https://todos-lists.onrender.com/todo/createtask/${taskid}`, { task: task }, {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/todo/createtask/${taskid}`, { task: task }, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
             const response = await res.data
@@ -224,7 +224,7 @@ const Landing = () => {
         }
     }
     const handleTaskClick = async (id) => {
-        const res = await axios.get(`https://todos-lists.onrender.com/todo/gettodo/${id}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/todo/gettodo/${id}`, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
         settasks(res.data.todo.tasks)
@@ -237,7 +237,7 @@ const Landing = () => {
         try {
             e.preventDefault()
             const text = e.target.parentNode.parentNode.firstChild.firstChild.innerText
-            const res = await axios.delete(`https://todos-lists.onrender.com/todo/deletetask/${taskid}`, {
+            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/todo/deletetask/${taskid}`, {
                 data: { taskString: text },
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             })
@@ -281,7 +281,7 @@ const Landing = () => {
         }
     }
     const sort = async (n) => {
-        const response = await axios.get('https://todos-lists.onrender.com/todo/sortTodo', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/todo/sortTodo`, {
             params: { order: n },
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
