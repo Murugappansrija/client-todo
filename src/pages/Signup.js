@@ -22,7 +22,7 @@ const Signup = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/signup`, cred)
+            const res = await axios.post('/user/signup', cred)
             const response = res.data
             console.log(response)
             if (response.success) {
@@ -103,7 +103,7 @@ const Signup = () => {
                     <Link to="/login" relative="path" className="cursor-pointer text-blue-800 text-sm">  Login</Link>
                 </div>
                 <div className="flex justify-between">
-                    <a className="text-sm text-gray-600" href="/">Forgot your password?</a>
+                    <a className="text-sm text-gray-600" href="/"></a>
                 </div>
                 <button type="submit" className="px-8 py-3 space-x-2 font-semibold rounded bg-indigo-600 text-gray-50">Sign up</button>
             </form>

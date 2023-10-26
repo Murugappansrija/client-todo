@@ -21,7 +21,7 @@ const Login = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/login`, cred)
+            const res = await axios.post('/user/login', cred)
             const response = await res.data
             if (response.success) {
                 localStorage.setItem("token", response.token)
@@ -98,7 +98,7 @@ const Login = () => {
                     <Link to="/" relative="path" className="cursor-pointer text-blue-800 text-sm"> Signup</Link>
                 </div>
                 <div className="flex justify-between">
-                    <a className="text-sm text-gray-600" href="/">Forgot your password?</a>
+                    <a className="text-sm text-gray-600" href="/"></a>
                 </div>
 
                 <button type="submit" className="px-8 py-3 space-x-2 font-semibold rounded bg-indigo-600 text-gray-50">Login</button>
