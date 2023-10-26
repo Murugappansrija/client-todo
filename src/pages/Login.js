@@ -21,7 +21,7 @@ const Login = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post(`/user/login`, cred)
+            const res = await axios.post(`https://todos-lists.onrender.com/user/login`, cred)
             const response = await res.data
             if (response.success) {
                 localStorage.setItem("token", response.token)
