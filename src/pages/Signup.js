@@ -100,7 +100,7 @@ const Signup = () => {
                 <div className="flex items-center">
                     Already have an account,
 
-                    <Link to="/login" relative="path" className="cursor-pointer text-blue-800 text-sm">  Login</Link>
+                    <Link to="/login" relative="path" className="cursor-pointer text-blue-800 text-sm">Login</Link>
                 </div>
               
                 <button type="submit" className="px-8 py-3 space-x-2 font-semibold rounded bg-indigo-600 text-gray-50">Sign up</button>
